@@ -30,7 +30,6 @@ const technician = require("./route/master/technician");
 const category = require("./route/category");
 const subcategory = require("./route/subcategory");
 const banner = require("./route/userapp/banner");
-const Subcatbanner = require("./route/subcategoryBanners");
 const userrouter = require("./route/master/user");
 const cityrouter = require("./route/master/city");
 
@@ -38,7 +37,7 @@ const customer = require("./route/customer");
 
 const servicedetails = require("./route/servicedetails");
 const addcall = require("./route/addcall");
-
+const address = require("./route/customerDAddress");
 //user app
 const userauth = require("./route/userapp/userauth");
 const ubanner = require("./route/userapp/banner");
@@ -52,7 +51,7 @@ const uspotlightbanner = require("./route/userapp/spotlight");
 const uhomebanner = require("./route/userapp/homepagebanner");
 const uhometitle = require("./route/userapp/homepagetiltle");
 const uslots = require("./route/userapp/slots");
-
+const Subcatbanner = require("./route/subcategoryBanners");
 const ufeq = require("./route/userapp/feq");
 const addOnsRoute = require("./route/userapp/serviceAddons");
 const numbersRoute = require("./route/userapp/whatsappNumber");
@@ -62,7 +61,7 @@ const sPayment = require("./route/paymentgatway/servicePayment");
 const webbanner = require("./route/websitebanner");
 
 const otp = require("./route/otp");
-const address = require("./route/customerDAddress");
+
 app.use("/api", otp);
 app.use("/api", admin);
 app.use("/api", technician);
