@@ -24,7 +24,7 @@ export default function DetailsWrapper() {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getservices"
+        "http://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         setService(res?.data?.service);
@@ -36,7 +36,7 @@ export default function DetailsWrapper() {
   const getAddons = async () => {
     try {
       let res = await axios.get(
-        `http://localhost:8008/api/userapp/getServiceAddOns`
+        `http://api.vijnanacademy.com/api/userapp/getServiceAddOns`
       );
       if (res.status === 200) {
         setAddOn(

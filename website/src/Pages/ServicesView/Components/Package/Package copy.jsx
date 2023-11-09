@@ -59,7 +59,7 @@ export default function Package() {
   const getAllSubsubCategory = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getappresubcat"
+        "http://api.vijnanacademy.com/api/userapp/getappresubcat"
       );
       if (res.status === 200) {
         setsubsubcategory(res.data.subcategory);
@@ -71,7 +71,7 @@ export default function Package() {
   const getAllCategory = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getappsubcat"
+        "http://api.vijnanacademy.com/api/userapp/getappsubcat"
       );
       if (res.status === 200) {
         setCategoryData(res.data.subcategory);
@@ -84,7 +84,7 @@ export default function Package() {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getservices"
+        "http://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         setService(res.data.service);
@@ -125,7 +125,7 @@ export default function Package() {
                 <img
                   width={160}
                   height={130}
-                  src={`http://localhost:8008/service/${ele?.serviceImg}`}
+                  src={`http://api.vijnanacademy.com/service/${ele?.serviceImg}`}
                   alt=""
                 />
                 <div className="offer">
@@ -335,7 +335,7 @@ export default function Package() {
                       <img
                         width={160}
                         height={130}
-                        src={`http://localhost:8008/service/${ele?.serviceImg}`}
+                        src={`http://api.vijnanacademy.com/service/${ele?.serviceImg}`}
                         alt=""
                       />
                     </div>

@@ -19,7 +19,7 @@ export default function Booking() {
   const getServiceDetails = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8008/api/getservicedetails`
+        `http://api.vijnanacademy.com/api/getservicedetails`
       );
       if (response.status === 200) {
         console.log(response.data.servicedetails);

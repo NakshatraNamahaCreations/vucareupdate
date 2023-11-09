@@ -42,7 +42,9 @@ class servicedetails {
         couponCode,
         city,
         paymentMode,
-        
+        bookingId,
+        planid,
+        qunty,subtotal
       } = req.body;
       let file = req.file?.filename;
 
@@ -91,8 +93,6 @@ class servicedetails {
             return { id: uniqueId, charge };
           });
         }
-
-
       }
       const user = await customerModel.findOneAndUpdate(
         { _id: customerData[0]?._id },
@@ -139,13 +139,15 @@ class servicedetails {
         couponCode,
         city,
         paymentMode,
-        TotalAmt
+        TotalAmt,
+        bookingId,
+        planid,qunty,subtotal
       });
 
       let save = await add.save();
 
       if (save) {
-        return res.json({ success: "Added successfully",data:save });
+        return res.json({ success: "Added successfully", data: save });
       }
     } catch (error) {
       console.log("error", error);
@@ -153,17 +155,17 @@ class servicedetails {
     }
   }
 
-async updatepayment(req,res){
-  let id = req.params.id;
+  async updatepayment(req, res) {
+    let id = req.params.id;
 
-  
-
-  let data = await servicedetailsmodel.findByIdAndUpdate({ _id: id }, {paymentMode:"online"  });
-  if (data) {
-    return  res.status(200).json({ success: "Updated" });
+    let data = await servicedetailsmodel.findByIdAndUpdate(
+      { _id: id },
+      { paymentMode: "online" }
+    );
+    if (data) {
+      return res.status(200).json({ success: "Updated" });
+    }
   }
-
-}
 
   //edit
   async editservicedetails(req, res) {
@@ -291,7 +293,6 @@ async updatepayment(req,res){
     }
   }
 
-  
   async postservicecategory(req, res) {
     let { category } = req.body;
     let data = await servicedetailsmodel.find({ category }).sort({ _id: -1 });

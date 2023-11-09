@@ -222,14 +222,14 @@ function Services() {
   }, []);
 
   const getslots = async () => {
-    let res = await axios.get("http://localhost:8008/api/userapp/getslots");
+    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getslots");
     if ((res.status = 200)) {
       setslotsdata(res.data?.slots);
     }
   };
 
   const gettitle = async () => {
-    let res = await axios.get("http://localhost:8008/api/userapp/gettitle");
+    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/gettitle");
     if ((res.status = 200)) {
       settitledata(res.data?.homepagetitle);
     }
@@ -241,13 +241,13 @@ function Services() {
   }, []);
 
   const getallsubcategory = async () => {
-    let res = await axios.get("http://localhost:8008/api/userapp/getappsubcat");
+    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getappsubcat");
     if ((res.status = 200)) {
       setcategorydata(res.data?.subcategory);
     }
   };
   const getcategory = async () => {
-    let res = await axios.get("http://localhost:8008/api/getcategory");
+    let res = await axios.get("http://api.vijnanacademy.com/api/getcategory");
     if ((res.status = 200)) {
       setcatdata(res.data?.category);
     }
@@ -259,7 +259,7 @@ function Services() {
 
   const getsubcategory = async () => {
     let res = await axios.post(
-      `http://localhost:8008/api/userapp/postappresubcat/`,
+      `http://api.vijnanacademy.com/api/userapp/postappresubcat/`,
       {
         subcategory: Subcategory,
       }
@@ -301,7 +301,7 @@ function Services() {
         const config = {
           url: "/userapp/addservices",
           method: "post",
-          baseURL: "http://localhost:8008/api",
+          baseURL: "http://api.vijnanacademy.com/api",
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -330,7 +330,7 @@ function Services() {
   }, []);
 
   const getservicemanagement = async () => {
-    let res = await axios.get("http://localhost:8008/api/userapp/getservices");
+    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getservices");
     if ((res.status = 200)) {
       setServicedata(res.data?.service);
       setfilterdata(res.data?.service);
@@ -341,7 +341,7 @@ function Services() {
   const deletecategory = async (id) => {
     axios({
       method: "post",
-      url: "http://localhost:8008/api/userapp/deleteservices/" + id,
+      url: "http://api.vijnanacademy.com/api/userapp/deleteservices/" + id,
     })
       .then(function (response) {
         //handle success
@@ -408,7 +408,7 @@ function Services() {
       cell: (row) => (
         <div>
           <img
-            src={`http://localhost:8008/service/${row.serviceImg}`}
+            src={`http://api.vijnanacademy.com/service/${row.serviceImg}`}
             width="50px"
             height="50px"
           />
@@ -441,7 +441,7 @@ function Services() {
 
   const postsubcategory = async () => {
     let res = await axios.post(
-      `http://localhost:8008/api/userapp/postappsubcat/`,
+      `http://api.vijnanacademy.com/api/userapp/postappsubcat/`,
       {
         category: category,
       }
@@ -456,7 +456,7 @@ function Services() {
   }, []);
 
   const getcity = async () => {
-    let res = await axios.get("http://localhost:8008/api/master/getcity");
+    let res = await axios.get("http://api.vijnanacademy.com/api/master/getcity");
     if ((res.status = 200)) {
       setcitydata(res.data?.mastercity);
       console.log(res.data?.mastercity);
@@ -470,7 +470,7 @@ function Services() {
       const config = {
         url: `/userapp/updateadvanceddata/${serID}`,
         method: "post",
-        baseURL: "http://localhost:8008/api",
+        baseURL: "http://api.vijnanacademy.com/api",
         // data: formdata,
         headers: { "content-type": "application/json" },
         data: {
@@ -517,7 +517,7 @@ function Services() {
       const config = {
         url: `/userapp/updateservices/${serviceId}`,
         method: "put",
-        baseURL: "http://localhost:8008/api",
+        baseURL: "http://api.vijnanacademy.com/api",
         data: formdata,
       };
       const response = await axios(config);

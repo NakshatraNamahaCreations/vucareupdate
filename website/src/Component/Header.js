@@ -26,7 +26,7 @@ export default function Header() {
   const getsubcategory = async () => {
     try {
       let res = await axios.get(
-        `http://localhost:8008/api/userapp/getappsubcat`
+        `http://api.vijnanacademy.com/api/userapp/getappsubcat`
       );
 
       if ((res.status = 200)) {
@@ -38,7 +38,7 @@ export default function Header() {
   };
   const getCity = async () => {
     try {
-      let res = await axios.get("http://localhost:8008/api/master/getcity");
+      let res = await axios.get("http://api.vijnanacademy.com/api/master/getcity");
       if (res.status === 200) {
         setCity(res.data.mastercity);
       }

@@ -53,7 +53,7 @@ export default function Header(props) {
   const getAllCategory = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/getcategory"
+        "http://api.vijnanacademy.com/api/getcategory"
       );
       if (res.status === 200) {
         setCategoryData(res.data.category);
@@ -65,7 +65,7 @@ export default function Header(props) {
 
   const getsubcategory = async () => {
     let res = await axios.post(
-      `http://localhost:8008/api/userapp/postappsubcat`,
+      `http://api.vijnanacademy.com/api/userapp/postappsubcat`,
       {
         category: SelectedCategory,
       }

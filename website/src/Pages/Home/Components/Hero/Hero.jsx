@@ -58,7 +58,7 @@ export default function Hero() {
   const getCity = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/master/getcity"
+        "http://api.vijnanacademy.com/api/master/getcity"
       );
       if (res.status === 200) {
         setCity(res.data.mastercity);
@@ -69,7 +69,7 @@ export default function Hero() {
   };
   const getsubcategory = async () => {
     let res = await axios.get(
-      `http://localhost:8008/api/userapp/getappsubcat`
+      `http://api.vijnanacademy.com/api/userapp/getappsubcat`
     );
 
     if ((res.status = 200)) {

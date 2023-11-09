@@ -19,6 +19,9 @@ import "../Payment/payment.scss";
 import "../Summary/summary.scss";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-bootstrap";
+import RightArrow from "../../../../Assets/Images/rightarrow.svg";
+import "../../../BookingDetail/Components/DetailsHeader/detailsheader.scss";
 
 export default function CartDetails() {
   const location = useLocation();
@@ -36,6 +39,7 @@ export default function CartDetails() {
   const [selectedAddons, setSelectedAddons] = useState([]);
   const [Service, setService] = useState([]);
   const navigate = useNavigate();
+
   // const [pay, setPay] = useState(true);
   const [cartData, setCartData] = useState([]);
   const [viewOrder, setViewOrder] = useState(false);
@@ -107,7 +111,7 @@ export default function CartDetails() {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getservices"
+        "http://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         setService(res.data.service);
@@ -132,7 +136,7 @@ export default function CartDetails() {
 
   const getVoucher = async () => {
     try {
-      let res = await axios.get(`http://localhost:8008/api/userapp/getvoucher`);
+      let res = await axios.get(`http://api.vijnanacademy.com/api/userapp/getvoucher`);
       if (res.status === 200) {
         setVoucher(res.data.voucher);
       }
@@ -277,7 +281,7 @@ export default function CartDetails() {
   const getAddons = async () => {
     try {
       let res = await axios.get(
-        `http://localhost:8008/api/userapp/getServiceAddOns`
+        `http://api.vijnanacademy.com/api/userapp/getServiceAddOns`
       );
       if (res.status === 200) {
         setAddOn(res?.data?.AddOns);
@@ -382,7 +386,7 @@ export default function CartDetails() {
   //         const config = {
   //           url: "/addenquiry",
   //           method: "post",
-  //           baseURL: "http://localhost:8008/api",
+  //           baseURL: "http://api.vijnanacademy.com/api",
 
   //           headers: { "content-type": "application/json" },
   //           data: {
@@ -429,7 +433,7 @@ export default function CartDetails() {
   //     const config = {
   //       url: "/addenquiryfollowup",
   //       method: "post",
-  //       baseURL: "http://localhost:8008/api",
+  //       baseURL: "http://api.vijnanacademy.com/api",
 
   //       headers: { "content-type": "application/json" },
   //       data: {
@@ -525,7 +529,7 @@ export default function CartDetails() {
   const getServiceDetails = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8008/api/getservicedetails`
+        `http://api.vijnanacademy.com/api/getservicedetails`
       );
       if (response.status === 200) {
         let filtredServices = response.data.servicedetails.filter(
@@ -561,7 +565,7 @@ export default function CartDetails() {
 
           const config = {
             url: `/addservicedetails`,
-            baseURL: "http://localhost:8008/api",
+            baseURL: "http://api.vijnanacademy.com/api",
             headers: { "content-type": "application/json" },
             method: "post",
             data: {
@@ -621,7 +625,7 @@ export default function CartDetails() {
       console.error("error", error);
     }
   };
-
+  console.log("bhk", bhk);
   const DeliveryAddres = async (e) => {
     e.preventDefault();
 
@@ -637,7 +641,7 @@ export default function CartDetails() {
       };
       const config = {
         url: `/addcustomerAddress`,
-        baseURL: "http://localhost:8008/api",
+        baseURL: "http://api.vijnanacademy.com/api",
         headers: { "content-type": "application/json" },
         method: "post",
         data: deliveryAddress,
@@ -664,7 +668,7 @@ export default function CartDetails() {
   const getDeliveryAddres = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8008/api/getalladress"
+        "http://api.vijnanacademy.com/api/getalladress"
       );
       if (response.status === 200) {
         let Address = response?.data?.data
@@ -680,11 +684,34 @@ export default function CartDetails() {
 
   return (
     <>
-      <a href="/servicedetails" className="ms-4">
+      {/* <a href="/servicedetails" className="ms-4">
         <ArrowCircleLeftIcon />
-      </a>
+      </a> */}
+
       <div className="cart_heading">
         <div className="container">
+          <div className="row mb-4">
+            <span className="col-md-1">
+              <div className="row">
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to="/"
+                  className="col-md-5 active"
+                >
+                  Home
+                </Link>
+                <span className="col-md-1">
+                  <img src={RightArrow} alt="" />
+                </span>
+              </div>
+            </span>
+
+            <span className="col-md-2">
+              <Link style={{ textDecoration: "none" }} to="/Servicedetails">
+                Service Details
+              </Link>
+            </span>
+          </div>
           <div className="cart_heading_content">
             <div className="text">
               <h3>View Service Cart</h3>
@@ -720,7 +747,7 @@ export default function CartDetails() {
                     <div className="left">
                       <div className="left_img">
                         <img
-                          src={`http://localhost:8008/service/${ele?.serviceImg}`}
+                          src={`http://api.vijnanacademy.com/service/${ele?.serviceImg}`}
                           alt=""
                         />
                       </div>
@@ -1149,7 +1176,7 @@ export default function CartDetails() {
                   <div className="addon_box">
                     <div className="addon_image">
                       <img
-                        src={`http://localhost:8008/addOns/${addon?.addOnsImage}`}
+                        src={`http://api.vijnanacademy.com/addOns/${addon?.addOnsImage}`}
                         alt=""
                       />
 

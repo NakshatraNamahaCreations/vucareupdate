@@ -29,7 +29,7 @@ export default function Home() {
   const GetAllWebBanner = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/website/getallwebbanner"
+        "http://api.vijnanacademy.com/api/website/getallwebbanner"
       );
 
       if (res.status === 200) {
@@ -50,7 +50,7 @@ export default function Home() {
   }, [selcategory]);
 
   const getsubcategory = async () => {
-    let res = await axios.get(`http://localhost:8008/api/userapp/getappsubcat`);
+    let res = await axios.get(`http://api.vijnanacademy.com/api/userapp/getappsubcat`);
 
     if ((res.status = 200)) {
       setCategoryData(res.data.subcategory);
@@ -65,7 +65,7 @@ export default function Home() {
 
   const getAllCategory = async () => {
     try {
-      let res = await axios.get("http://localhost:8008/api/getcategory");
+      let res = await axios.get("http://api.vijnanacademy.com/api/getcategory");
       if (res.status === 200) {
         const firstInFirstOut = res.data.category.reverse();
         setCategory(firstInFirstOut);
@@ -174,7 +174,7 @@ export default function Home() {
                     width={50}
                     height={50}
                     categoryImg
-                    src={`http://localhost:8008/category/${ele?.categoryImg}`}
+                    src={`http://api.vijnanacademy.com/category/${ele?.categoryImg}`}
                     alt=""
                   />{" "}
                 </div>
@@ -205,7 +205,7 @@ export default function Home() {
                     className="col-md-11 m-auto "
                     width={380}
                     height={180}
-                    src={`http://localhost:8008/webBanner/${item.banner}`}
+                    src={`http://api.vijnanacademy.com/webBanner/${item.banner}`}
                     alt=""
                   />
                 </div>
@@ -234,7 +234,7 @@ export default function Home() {
                       <img
                         width={150}
                         height={150}
-                        src={`http://localhost:8008/subcat/${item?.subcatimg}`}
+                        src={`http://api.vijnanacademy.com/subcat/${item?.subcatimg}`}
                         className=" shadow bg-white rounded "
                         alt=""
                       />
@@ -283,7 +283,7 @@ export default function Home() {
                       <img
                         width={150}
                         height={150}
-                        src={`http://localhost:8008/subcat/${ele?.subcatimg}`}
+                        src={`http://api.vijnanacademy.com/subcat/${ele?.subcatimg}`}
                         className="col-md-11 shadow bg-white rounded"
                         alt=""
                       />
@@ -322,7 +322,7 @@ export default function Home() {
                       <img
                         width={150}
                         height={150}
-                        src={`http://localhost:8008/subcat/${item?.subcatimg}`}
+                        src={`http://api.vijnanacademy.com/subcat/${item?.subcatimg}`}
                         className="col-md-11 shadow bg-white rounded "
                         alt=""
                       />
@@ -439,7 +439,7 @@ export default function Home() {
                         }}
                       >
                         <img
-                          src={`http://localhost:8008/subcat/${item.subcatimg}`}
+                          src={`http://api.vijnanacademy.com/subcat/${item.subcatimg}`}
                           width="100%"
                           height="100px"
                         />

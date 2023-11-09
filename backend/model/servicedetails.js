@@ -87,9 +87,21 @@ const serviceSchema = new mongoose.Schema(
     oneCommunity: {
       type: String,
     },
-
+    bookingId: {
+      type: Number,
+    },
+    qunty: {
+      type: Number,
+    },
+    subtotal: {
+      type: Number,
+    },
     paymentMode: {
       type: String,
+    },
+    planid: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "planid",
     },
     GrandTotal: {
       type: String,
@@ -118,6 +130,7 @@ const serviceSchema = new mongoose.Schema(
     videoLink: {
       type: String, //03-10
     },
+
     communityId: { type: mongoose.Schema.Types.ObjectId, ref: "community" },
     creatAt: {
       type: Date,

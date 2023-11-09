@@ -18,7 +18,7 @@ export default function CartItem() {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getservices"
+        "http://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         setService(res.data.service);

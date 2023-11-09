@@ -16,7 +16,7 @@ export default function CorporateFacility() {
   const getAllCategory = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getappsubcat"
+        "http://api.vijnanacademy.com/api/userapp/getappsubcat"
       );
       if (res.status === 200) {
 
@@ -53,7 +53,7 @@ export default function CorporateFacility() {
                       <img
                         width={160}
                         height={130}
-                        src={`http://localhost:8008/subcat/${items?.subcatimg}`}
+                        src={`http://api.vijnanacademy.com/subcat/${items?.subcatimg}`}
                         alt=""
                       />
                       <div className="name">{capitalizedSubcategory}</div>

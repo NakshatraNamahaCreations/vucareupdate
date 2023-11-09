@@ -21,7 +21,7 @@ export default function BookingDetails() {
   const { trackid } = location.state;
   const [Service, setService] = useState([]);
   const [BookingDetails, setBookingDetails] = useState([]);
-  // const [CategoryData, setCategoryData] = useState();
+
   useEffect(() => {
     getServiceDetails();
     getAllServices();
@@ -29,7 +29,7 @@ export default function BookingDetails() {
   const getServiceDetails = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8008/api/getservicedetails`
+        `http://api.vijnanacademy.com/api/getservicedetails`
       );
       if (response.status === 200) {
         let filtredServices = response?.data?.servicedetails?.filter(
@@ -45,7 +45,7 @@ export default function BookingDetails() {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getservices"
+        "http://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         let data = res?.data?.service;
@@ -62,16 +62,23 @@ export default function BookingDetails() {
   let pprices = null;
   let offepric = null;
   let pricesbhk = null;
-
+  let serviceIMg = null;
   return (
     <>
       <NabarCompo className="full_screen" />
       {BookingDetails?.flatMap((ele) => {
-        Service?.filter((item) => {
-          if (item?._id === ele?.serviceID) {
-            priceId = item?.morepriceData;
-          }
-        });
+        const matchingService = Service.find(
+          (item) => item?._id === ele?.serviceID
+        );
+
+        // Log the matchingService to check if a match is found
+        console.log("Matching Service:", matchingService);
+
+        if (matchingService) {
+          priceId = matchingService.morepriceData;
+          serviceIMg = matchingService.serviceImg;
+        }
+
         priceId.filter((price) => {
           if (price._id === ele.planid) {
             pricesbhk = price?.pName;
@@ -90,9 +97,9 @@ export default function BookingDetails() {
                     Home
                   </NavLink>
                   <img src={RightArrow} alt="" />
-                  <NavLink to="myaccount">My Account</NavLink>
+                  <NavLink to="/servicedetails">Service Details</NavLink>
                   <img src={RightArrow} alt="" />
-                  <NavLink to="mybooking">My Bookings</NavLink>
+                  <NavLink to="/booking">My Bookings</NavLink>
                 </div>
                 <div className="booking_id_title">
                   Booking ID : {ele?.bookingId}
@@ -112,7 +119,10 @@ export default function BookingDetails() {
                       <div className="item_content">
                         <div className="left">
                           <div className="left_img">
-                            {/* <img src={ItemImg} alt="" /> */}
+                            <img
+                              src={`http://api.vijnanacademy.com/service/${serviceIMg}`}
+                              alt=""
+                            />
                           </div>
                           <div className="texts">
                             {/* <h4>Premium Cleaning</h4> */}

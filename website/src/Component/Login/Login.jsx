@@ -42,7 +42,7 @@ export default function Login() {
       const config = {
         url: "/usersign",
         method: "post",
-        baseURL: "http://localhost:8008/api",
+        baseURL: "http://api.vijnanacademy.com/api",
         headers: { "Content-Type": "application/json" },
         data: {
           email: Email,

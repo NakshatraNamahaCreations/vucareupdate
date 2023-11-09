@@ -17,7 +17,7 @@ export default function CleaningServices() {
   const getAllCategory = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getappsubcat"
+        "http://api.vijnanacademy.com/api/userapp/getappsubcat"
       );
       if (res.status === 200) {
         let data = res.data.subcategory.filter((ele) =>
@@ -73,7 +73,7 @@ export default function CleaningServices() {
                         <img
                           width={200}
                           height={130}
-                          src={`http://localhost:8008/subcat/${ele?.subcatimg}`}
+                          src={`http://api.vijnanacademy.com/subcat/${ele?.subcatimg}`}
                           alt=""
                         />
                       </div>

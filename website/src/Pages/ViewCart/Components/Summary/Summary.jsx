@@ -20,7 +20,7 @@ export default function Summary() {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getservices"
+        "http://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         setService(res.data.service);
@@ -58,7 +58,7 @@ export default function Summary() {
   const getVoucher = async () => {
     try {
       let res = await axios.get(
-        `http://localhost:8008/api/userapp/getvoucher`
+        `http://api.vijnanacademy.com/api/userapp/getvoucher`
       );
       if (res.status === 200) {
         setVoucher(res.data.voucher);

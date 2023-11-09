@@ -33,7 +33,7 @@ export default function Booking() {
   const getServiceDetails = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8008/api/getservicedetails`
+        `http://api.vijnanacademy.com/api/getservicedetails`
       );
       if (response.status === 200) {
         let filtredServices = response.data.servicedetails.filter(
@@ -46,10 +46,11 @@ export default function Booking() {
       console.log(err);
     }
   };
+  // console.log(planBHk, "planBHk");
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:8008/api/userapp/getservices"
+        "http://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         let data = res?.data?.service;
@@ -57,7 +58,7 @@ export default function Booking() {
           if (ele?._id === idd) {
             setSerivid(ele);
             return ele?.morepriceData?.find((item) =>
-              item?._id?.includes(planBHk?.[0])
+              item?._id?.includes(planBHk)
             );
           }
           return [];
@@ -71,19 +72,20 @@ export default function Booking() {
 
   let FiltredData = BookingDetails.flatMap((ele) => ele);
   let pricename = null;
+
   let vidios = [
     {
       category: "Cleaning Services",
-      img: "../images/clnvd.mp4",
+      img: "../images/cleaning.mp4",
     },
 
     {
       category: "Painting Services",
-      img: "../images/painting.mp4",
+      img: "../images/painting (5).mp4",
     },
     {
       category: "Pest control",
-      img: "../images/pest.mp4",
+      img: "../images/cocroch.mp4",
     },
     {
       category: "Garden Maintenance",
@@ -92,7 +94,7 @@ export default function Booking() {
   ];
 
   const getsubcategory = async () => {
-    let res = await axios.get(`http://localhost:8008/api/userapp/getappsubcat`);
+    let res = await axios.get(`http://api.vijnanacademy.com/api/userapp/getappsubcat`);
 
     if ((res.status = 200)) {
       setCategoryData(res.data.subcategory);
@@ -187,7 +189,7 @@ export default function Booking() {
                             <div className="tab_ser">
                               <div className="tab_img">
                                 <img
-                                  src={`http://localhost:8008/service/${Serivid?.serviceImg}`}
+                                  src={`http://api.vijnanacademy.com/service/${Serivid?.serviceImg}`}
                                   alt=""
                                 />
                               </div>
@@ -208,7 +210,7 @@ export default function Booking() {
                                       width={60}
                                       height={60}
                                       style={{ borderRadius: "5px" }}
-                                      src={`http://localhost:8008/addOns/${item?.addOnsImage}`}
+                                      src={`http://api.vijnanacademy.com/addOns/${item?.addOnsImage}`}
                                       alt=""
                                     />{" "}
                                   </div>
@@ -247,7 +249,7 @@ export default function Booking() {
                               <div className="tab_ser">
                                 <div className="tab_img">
                                   <img
-                                    src={`http://localhost:8008/service/${Serivid?.serviceImg}`}
+                                    src={`http://api.vijnanacademy.com/service/${Serivid?.serviceImg}`}
                                     alt=""
                                   />
                                 </div>
@@ -267,7 +269,7 @@ export default function Booking() {
                                         width={60}
                                         height={60}
                                         style={{ borderRadius: "5px" }}
-                                        src={`http://localhost:8008/addOns/${item?.addOnsImage}`}
+                                        src={`http://api.vijnanacademy.com/addOns/${item?.addOnsImage}`}
                                         alt=""
                                       />{" "}
                                     </div>
@@ -288,21 +290,25 @@ export default function Booking() {
             </div>
 
             <div className="col-md-6">
-              {CategoryData.filter((video) => {
-                const catego = video.category?.toLowerCase();
-                return FiltredData.some(
-                  (ele) => catego === ele.category?.toLowerCase()
-                );
-              }).map((filteredVideo) => (
-                <div key={filteredVideo.id} className="row">
-                  <video autoPlay loop width={1800} height={400}>
-                    <source
-                      src={`http://localhost:8008/service/${filteredVideo?.subcatvideo}`}
-                      type="video/mp4"
-                    />
-                  </video>
-                </div>
-              ))}
+              {vidios
+                .filter((video) => {
+                  const catego = video.category?.toLowerCase();
+                  return FiltredData.some(
+                    (ele) => catego === ele.category?.toLowerCase()
+                  );
+                })
+                .map((filteredVideo) => (
+                  <div key={filteredVideo.id} className="row">
+                    <video
+                      style={{ objectFit: "cover", borderRadius: "20px" }}
+                      autoPlay
+                      loop
+                      height={400}
+                    >
+                      <source src={filteredVideo?.img} type="video/mp4" />
+                    </video>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
