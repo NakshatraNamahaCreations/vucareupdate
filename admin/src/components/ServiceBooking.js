@@ -47,7 +47,30 @@ function ServiceBooking() {
       console.log(er, "err while fetching data");
     }
   };
+  const editservices = async (e, data) => {
+    e.preventDefault();
 
+    try {
+      const config = {
+        url: `/editservicedetails/${data}`,
+        method: "post",
+        baseURL: "http://localhost:8008/api",
+        headers: { "Content-Type": "application/json" },
+        data: { ServiceStatus: "Completed" },
+      };
+      await axios(config).then(function (response) {
+        if (response.status === 200) {
+          alert("Successfully Added");
+          window.location.reload("");
+          // onupdate();
+          // handleClose();
+        }
+      });
+    } catch (error) {
+      console.error(error);
+      alert("Not Added");
+    }
+  };
   return (
     <div className="row">
       <div className="col-md-2">
@@ -138,10 +161,14 @@ function ServiceBooking() {
                   userData = user;
                 });
                 Serivid.map((Ele) => (ServiceData = Ele));
-
+                console.log(ele?.ServiceStatus, "ele?.ServiceStatus");
                 const deliveryAddressObj = JSON?.parse(ele?.deliveryAddress);
                 return (
-                  <tr className="user-tbale-body text-center">
+                  <tr
+                    className={`user-tbale-body text-center ${
+                      ele?.ServiceStatus?.includes("Completed") ? "clrgren" : ""
+                    }`}
+                  >
                     <td>{index + 1}</td>
                     <td>{userData.customerName}</td>
                     <td>{userData.email}</td>
@@ -157,10 +184,9 @@ function ServiceBooking() {
                     <td>{userData.contactPerson}</td>
                     <td>{ele.service}</td>
                     <td>{ele.TotalAmt}</td>
-
                     <td>
                       <img
-                        src={`http://api.vijnanacademy.com/service/${ServiceData?.serviceImg}`}
+                        src={`http://localhost:8008/service/${ServiceData?.serviceImg}`}
                         alt=""
                         height={"30px"}
                         width={"30px"}
@@ -180,9 +206,12 @@ function ServiceBooking() {
                     </td>
                     <td>{ele.city}</td>
                     <td>
-                      {" "}
-                      <span>Completed </span>
-                      <Button variant="success">Edit</Button>{" "}
+                      <Button
+                        onClick={(e) => editservices(e, ele._id)}
+                        variant="success"
+                      >
+                        Completed
+                      </Button>{" "}
                     </td>
                   </tr>
                 );

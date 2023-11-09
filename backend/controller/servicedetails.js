@@ -44,7 +44,7 @@ class servicedetails {
         paymentMode,
         bookingId,
         planid,
-        qunty,subtotal
+        qunty,subtotal,ServiceStatus
       } = req.body;
       let file = req.file?.filename;
 
@@ -141,7 +141,7 @@ class servicedetails {
         paymentMode,
         TotalAmt,
         bookingId,
-        planid,qunty,subtotal
+        planid,qunty,subtotal,ServiceStatus
       });
 
       let save = await add.save();
@@ -187,7 +187,7 @@ class servicedetails {
       dividedDates,
       dividedCharges,
       BackofficeExecutive,
-      deliveryAddress,
+      deliveryAddress,ServiceStatus
     } = req.body;
 
     let data = await servicedetailsmodel.findOneAndUpdate(
@@ -209,7 +209,7 @@ class servicedetails {
         dividedDates,
         dividedCharges,
         BackofficeExecutive,
-        deliveryAddress,
+        deliveryAddress,ServiceStatus
       }
     );
     if (data) {

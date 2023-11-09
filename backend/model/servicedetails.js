@@ -130,6 +130,9 @@ const serviceSchema = new mongoose.Schema(
     videoLink: {
       type: String, //03-10
     },
+    ServiceStatus: {
+      type: String,
+    },
 
     communityId: { type: mongoose.Schema.Types.ObjectId, ref: "community" },
     creatAt: {

@@ -568,7 +568,7 @@ export default function CartDetails() {
 
         const config = {
           url: `/addservicedetails`,
-          baseURL: "http://localhost:8008/api",
+          baseURL: "http://api.vijnanacademy.com/api",
           headers: { "content-type": "application/json" },
           method: "post",
           data: {
@@ -613,6 +613,7 @@ export default function CartDetails() {
             planid: bhk,
             qunty: Number(CountAddon) + Number(NumberOfQunatity),
             subtotal: subtotal,
+            ServiceStatus: Pending,
           },
         };
 
@@ -690,7 +691,7 @@ export default function CartDetails() {
         <ArrowCircleLeftIcon />
       </a> */}
 
-      <div className="cart_heading">
+<div className="cart_heading">
         <div className="container">
           <div className="row mb-4">
             <span className="col-md-1">
@@ -698,7 +699,7 @@ export default function CartDetails() {
                 <Link
                   style={{ textDecoration: "none" }}
                   to="/"
-                  className="col-md-5 active"
+                  className="col-md-8 active"
                 >
                   Home
                 </Link>
@@ -749,7 +750,7 @@ export default function CartDetails() {
                     <div className="left">
                       <div className="left_img">
                         <img
-                          src={`http://api.vijnanacademy.com/service/${ele?.serviceImg}`}
+                          src={`http://localhost:8008/service/${ele?.serviceImg}`}
                           alt=""
                         />
                       </div>
@@ -1064,10 +1065,9 @@ export default function CartDetails() {
                         </>
                       )}
                     </div>
-                    <button className="p-2 " onClick={handleBookservices1}>
-                      BOOK
-                    </button>
+                    <button className="p-2 " onClick={handleBookservices1}>BOOK</button>
                   </div>
+                 
                 </div>
               </Modal>
 
@@ -1181,7 +1181,7 @@ export default function CartDetails() {
                   <div className="addon_box">
                     <div className="addon_image">
                       <img
-                        src={`http://api.vijnanacademy.com/addOns/${addon?.addOnsImage}`}
+                        src={`http://localhost:8008/addOns/${addon?.addOnsImage}`}
                         alt=""
                       />
 
