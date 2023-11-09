@@ -136,7 +136,9 @@ export default function CartDetails() {
 
   const getVoucher = async () => {
     try {
-      let res = await axios.get(`http://api.vijnanacademy.com/api/userapp/getvoucher`);
+      let res = await axios.get(
+        `http://api.vijnanacademy.com/api/userapp/getvoucher`
+      );
       if (res.status === 200) {
         setVoucher(res.data.voucher);
       }
@@ -545,9 +547,11 @@ export default function CartDetails() {
   const handleDeliveryAddress = async (eleId) => {
     const selectedAddress = DelivaryAddress.find((item) => item._id === eleId);
     setSelectedAddress(selectedAddress);
+  };
 
+  const handleBookservices1 = () => {
     setviewAddress(false);
-    await handleBookservices();
+    handleBookservices();
   };
 
   const handleBookservices = async () => {
@@ -556,76 +560,74 @@ export default function CartDetails() {
     try {
       if (userData === null || userData === undefined) {
         alert("Please Login ");
+      } else if (SelectedAddress === null || SelectedAddress === undefined) {
+        alert("Please Select Address");
+        setviewAddress(true);
       } else {
-        if (SelectedAddress === null || SelectedAddress === undefined) {
-          alert("Please Select Address");
-          setviewAddress(true);
-        } else {
-          const generatedBookingId = generateBookingId(8);
+        const generatedBookingId = generateBookingId(8);
 
-          const config = {
-            url: `/addservicedetails`,
-            baseURL: "http://api.vijnanacademy.com/api",
-            headers: { "content-type": "application/json" },
-            method: "post",
-            data: {
-              customer: userData,
-              customerData: userData,
-              dividedDates: dividedDates ? dividedDates : selectedDate,
-              dividedamtCharges: dividedamtCharges,
-              dividedamtDates: dividedamtDates,
-              cardNo: userData?.cardNo,
-              category: serviceidd?.[0]?.category,
-              contractType: !pofferprice ? "One Time" : "AMC",
-              service: serviceidd?.[0].serviceName,
-              serviceCharge: firstFilteredElement?.pofferprice,
-              dateofService: selectedDate,
-              selectedSlotText: selectedSlotTextget,
-              serviceFrequency: firstFilteredElement?.pservices,
-              startDate: selectedDate,
-              expiryDate: expiryDate,
-              firstserviceDate: selectedDate,
-              date: moment().format("YYYY-MM-DD"),
-              time: moment().format("LT"),
-              type: "Website",
-              desc: joinedPlanNames,
-              city: selectecity,
-              userId: userData?._id,
-              deliveryAddress: JSON.stringify(SelectedAddress),
-              serviceImg: serviceidd?.serviceImg,
-              AddOns: selectedAddons,
-              discAmt: discountAmount,
-              GrandTotal: grandTotal,
-              paymentMode: selectedpaymentOption,
-              TotalAmt: grandTotal
-                ? parseFloat(firstFilteredElement?.pPrice) +
-                  parseFloat(grandTotal)
-                : firstFilteredElement?.pPrice,
-              couponCode: coupancode,
-              totalSaved: discountAmount
-                ? frequentAmount + discountAmount
-                : frequentAmount,
-              bookingId: generatedBookingId,
-              serviceID: passseviceid,
-              planid: bhk,
-              qunty: Number(CountAddon) + Number(NumberOfQunatity),
-              subtotal: subtotal,
-            },
-          };
+        const config = {
+          url: `/addservicedetails`,
+          baseURL: "http://localhost:8008/api",
+          headers: { "content-type": "application/json" },
+          method: "post",
+          data: {
+            customer: userData,
+            customerData: userData,
+            dividedDates: dividedDates ? dividedDates : selectedDate,
+            dividedamtCharges: dividedamtCharges,
+            dividedamtDates: dividedamtDates,
+            cardNo: userData?.cardNo,
+            category: serviceidd?.[0]?.category,
+            contractType: !pofferprice ? "One Time" : "AMC",
+            service: serviceidd?.[0].serviceName,
+            serviceCharge: firstFilteredElement?.pofferprice,
+            dateofService: selectedDate,
+            selectedSlotText: selectedSlotTextget,
+            serviceFrequency: firstFilteredElement?.pservices,
+            startDate: selectedDate,
+            expiryDate: expiryDate,
+            firstserviceDate: selectedDate,
+            date: moment().format("YYYY-MM-DD"),
+            time: moment().format("LT"),
+            type: "Website",
+            desc: joinedPlanNames,
+            city: selectecity,
+            userId: userData?._id,
+            deliveryAddress: JSON.stringify(SelectedAddress),
+            serviceImg: serviceidd?.serviceImg,
+            AddOns: selectedAddons,
+            discAmt: discountAmount,
+            GrandTotal: grandTotal,
+            paymentMode: selectedpaymentOption,
+            TotalAmt: grandTotal
+              ? parseFloat(firstFilteredElement?.pPrice) +
+                parseFloat(grandTotal)
+              : firstFilteredElement?.pPrice,
+            couponCode: coupancode,
+            totalSaved: discountAmount
+              ? frequentAmount + discountAmount
+              : frequentAmount,
+            bookingId: generatedBookingId,
+            serviceID: passseviceid,
+            planid: bhk,
+            qunty: Number(CountAddon) + Number(NumberOfQunatity),
+            subtotal: subtotal,
+          },
+        };
 
-          await axios(config).then(function (response) {
-            if (response.status === 200) {
-              setSelectedAddress(null);
-              setViewOrder(true);
-            }
-          });
-        }
+        await axios(config).then(function (response) {
+          if (response.status === 200) {
+            setSelectedAddress(null);
+            setViewOrder(true);
+          }
+        });
       }
     } catch (error) {
       console.error("error", error);
     }
   };
-  console.log("bhk", bhk);
+
   const DeliveryAddres = async (e) => {
     e.preventDefault();
 
@@ -1062,6 +1064,9 @@ export default function CartDetails() {
                         </>
                       )}
                     </div>
+                    <button className="p-2 " onClick={handleBookservices1}>
+                      BOOK
+                    </button>
                   </div>
                 </div>
               </Modal>
