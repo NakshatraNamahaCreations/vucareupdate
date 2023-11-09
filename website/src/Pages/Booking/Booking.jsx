@@ -33,7 +33,7 @@ export default function Booking() {
   const getServiceDetails = async () => {
     try {
       const response = await axios.get(
-        `http://api.vijnanacademy.com/api/getservicedetails`
+        `https://api.vijnanacademy.com/api/getservicedetails`
       );
       if (response.status === 200) {
         let filtredServices = response.data.servicedetails.filter(
@@ -50,7 +50,7 @@ export default function Booking() {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://api.vijnanacademy.com/api/userapp/getservices"
+        "https://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         let data = res?.data?.service;
@@ -94,7 +94,7 @@ export default function Booking() {
   ];
 
   const getsubcategory = async () => {
-    let res = await axios.get(`http://api.vijnanacademy.com/api/userapp/getappsubcat`);
+    let res = await axios.get(`https://api.vijnanacademy.com/api/userapp/getappsubcat`);
 
     if ((res.status = 200)) {
       setCategoryData(res.data.subcategory);
@@ -189,7 +189,7 @@ export default function Booking() {
                             <div className="tab_ser">
                               <div className="tab_img">
                                 <img
-                                  src={`http://api.vijnanacademy.com/service/${Serivid?.serviceImg}`}
+                                  src={`https://api.vijnanacademy.com/service/${Serivid?.serviceImg}`}
                                   alt=""
                                 />
                               </div>
@@ -210,7 +210,7 @@ export default function Booking() {
                                       width={60}
                                       height={60}
                                       style={{ borderRadius: "5px" }}
-                                      src={`http://api.vijnanacademy.com/addOns/${item?.addOnsImage}`}
+                                      src={`https://api.vijnanacademy.com/addOns/${item?.addOnsImage}`}
                                       alt=""
                                     />{" "}
                                   </div>
@@ -249,7 +249,7 @@ export default function Booking() {
                               <div className="tab_ser">
                                 <div className="tab_img">
                                   <img
-                                    src={`http://api.vijnanacademy.com/service/${Serivid?.serviceImg}`}
+                                    src={`https://api.vijnanacademy.com/service/${Serivid?.serviceImg}`}
                                     alt=""
                                   />
                                 </div>
@@ -269,7 +269,7 @@ export default function Booking() {
                                         width={60}
                                         height={60}
                                         style={{ borderRadius: "5px" }}
-                                        src={`http://api.vijnanacademy.com/addOns/${item?.addOnsImage}`}
+                                        src={`https://api.vijnanacademy.com/addOns/${item?.addOnsImage}`}
                                         alt=""
                                       />{" "}
                                     </div>

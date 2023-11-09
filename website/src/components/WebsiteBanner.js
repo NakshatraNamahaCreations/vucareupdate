@@ -38,7 +38,7 @@ function Banner() {
       const config = {
         url: "/website/addwebbanner",
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
 
         data: formdata,
       };
@@ -60,7 +60,7 @@ function Banner() {
 
   const getbannerimg = async () => {
     let res = await axios.get(
-      "http://api.vijnanacademy.com/api/website/getallwebbanner"
+      "https://api.vijnanacademy.com/api/website/getallwebbanner"
     );
     if ((res.status = 200)) {
       setBannerdata(res.data?.banner);
@@ -71,7 +71,7 @@ function Banner() {
   const deletebannerimg = async (id) => {
     axios({
       method: "post",
-      url: "http://api.vijnanacademy.com/api/website/deletewebbanner/" + id,
+      url: "https://api.vijnanacademy.com/api/website/deletewebbanner/" + id,
     })
       .then(function (response) {
         //handle success
@@ -137,7 +137,7 @@ function Banner() {
                           <td>
                             <img
                               className="header_logo"
-                              src={`http://api.vijnanacademy.com/webBanner/${element.banner}`}
+                              src={`https://api.vijnanacademy.com/webBanner/${element.banner}`}
                               width={"100px"}
                               height={"50px"}
                             />

@@ -68,7 +68,7 @@ export default function Package({ ele, index }) {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://api.vijnanacademy.com/api/userapp/getservices"
+        "https://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         setService(res.data.service);
@@ -101,7 +101,7 @@ export default function Package({ ele, index }) {
 
   const getVoucher = async () => {
     try {
-      let res = await axios.get(`http://api.vijnanacademy.com/api/userapp/getvoucher`);
+      let res = await axios.get(`https://api.vijnanacademy.com/api/userapp/getvoucher`);
       if (res.status === 200) {
         setVoucher(res.data.voucher);
       }
@@ -132,7 +132,7 @@ export default function Package({ ele, index }) {
               <div className="top">
                 {/* <div className="simg">
                   <img
-                    src={`http://api.vijnanacademy.com/service/${ele?.serviceImg}`}
+                    src={`https://api.vijnanacademy.com/service/${ele?.serviceImg}`}
                     alt=""
                   />
                 
@@ -159,7 +159,7 @@ export default function Package({ ele, index }) {
                       <img
                         width={20}
                         height={20}
-                        src={`http://api.vijnanacademy.com/service/${ele?.Eximg}`}
+                        src={`https://api.vijnanacademy.com/service/${ele?.Eximg}`}
                         alt=""
                       />{" "}
                       <p
@@ -183,7 +183,7 @@ export default function Package({ ele, index }) {
                       <img
                         width={150}
                         height={130}
-                        src={`http://api.vijnanacademy.com/service/${ele?.serviceImg}`}
+                        src={`https://api.vijnanacademy.com/service/${ele?.serviceImg}`}
                         alt=""
                         style={{ borderRadius: "10px" }}
                       />
@@ -343,7 +343,7 @@ export default function Package({ ele, index }) {
                             <img
                               // width={160}
                               // height={130}
-                              src={`http://api.vijnanacademy.com/service/${ele?.serviceImg}`}
+                              src={`https://api.vijnanacademy.com/service/${ele?.serviceImg}`}
                               alt=""
                             />
                           </div>

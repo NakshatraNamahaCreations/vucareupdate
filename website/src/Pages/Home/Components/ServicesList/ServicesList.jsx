@@ -13,7 +13,7 @@ export default function ServicesList() {
 
   const getsubcategory = async () => {
     let res = await axios.get(
-      `http://api.vijnanacademy.com/api/userapp/getappsubcat`
+      `https://api.vijnanacademy.com/api/userapp/getappsubcat`
     );
 
     if ((res.status = 200)) {
@@ -63,7 +63,7 @@ export default function ServicesList() {
                   width={60}
                   height={60}
                   style={{ borderRadius: "5px" }}
-                  src={`http://api.vijnanacademy.com/subcat/${item?.subcatimg}`}
+                  src={`https://api.vijnanacademy.com/subcat/${item?.subcatimg}`}
                   alt=""
                 />
 

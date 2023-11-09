@@ -38,7 +38,7 @@ export default function Register() {
         const config = {
           url: "/addcustomer",
           method: "post",
-          baseURL: "http://api.vijnanacademy.com/api",
+          baseURL: "https://api.vijnanacademy.com/api",
           headers: { "Content-Type": "application/json" },
           data: {
             customerName: name,
@@ -83,7 +83,7 @@ export default function Register() {
   });
   const getCity = async () => {
     try {
-      let res = await axios.get("http://api.vijnanacademy.com/api/master/getcity");
+      let res = await axios.get("https://api.vijnanacademy.com/api/master/getcity");
       if (res.status === 200) {
         setCity(res.data.mastercity);
       }

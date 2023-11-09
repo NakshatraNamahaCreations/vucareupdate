@@ -40,7 +40,7 @@ function Homepagebanner() {
       const config = {
         url: "/userapp/addhomebanner",
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
 
         data: formdata,
       };
@@ -60,7 +60,7 @@ function Homepagebanner() {
   }, []);
 
   const getcategory = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/getcategory");
+    let res = await axios.get("https://api.vijnanacademy.com/api/getcategory");
     if ((res.status = 200)) {
       setcategorydata(res.data?.category);
     }
@@ -71,7 +71,7 @@ function Homepagebanner() {
   }, []);
 
   const getbannerimg = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getallhomebanner");
+    let res = await axios.get("https://api.vijnanacademy.com/api/userapp/getallhomebanner");
     if ((res.status = 200)) {
       setBannerdata(res.data?.homebanner);
       console.log(res.data?.homebanner);
@@ -81,7 +81,7 @@ function Homepagebanner() {
   const deletebannerimg = async (id) => {
     axios({
       method: "post",
-      url: "http://api.vijnanacademy.com/api/userapp/deletehomebanner/" + id,
+      url: "https://api.vijnanacademy.com/api/userapp/deletehomebanner/" + id,
     })
       .then(function (response) {
         //handle success
@@ -151,7 +151,7 @@ function Homepagebanner() {
                           <td>
                             <img
                               className="header_logo"
-                              src={`http://api.vijnanacademy.com/homepagebanner/${element.banner}`}
+                              src={`https://api.vijnanacademy.com/homepagebanner/${element.banner}`}
                               width={"100px"}
                               height={"50px"}
                             />

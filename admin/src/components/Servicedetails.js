@@ -183,7 +183,7 @@ const [postsubdata, setpostsubdata] = useState([]);
   const getservicemanagement = async () => {
     try {
       const res = await axios.get(
-        `http://api.vijnanacademy.com/api/userapp/getservices`
+        `https://api.vijnanacademy.com/api/userapp/getservices`
       );
       if (res.status === 200) {
         const serviceData = res.data?.service.filter((i) => i._id === id);
@@ -314,13 +314,13 @@ const [postsubdata, setpostsubdata] = useState([]);
   }, []);
 
   const getallcategory = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getappsubcat");
+    let res = await axios.get("https://api.vijnanacademy.com/api/userapp/getappsubcat");
     if ((res.status = 200)) {
       setcategorydata(res.data?.subcategory);
     }
   };
   const getcategory = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/getcategory");
+    let res = await axios.get("https://api.vijnanacademy.com/api/getcategory");
     if ((res.status = 200)) {
       setcatdata(res.data?.category);
     }
@@ -332,7 +332,7 @@ const [postsubdata, setpostsubdata] = useState([]);
 
   const postsubcategory = async () => {
     let res = await axios.post(
-      `http://api.vijnanacademy.com/api/userapp/postappsubcat/`,
+      `https://api.vijnanacademy.com/api/userapp/postappsubcat/`,
       {
         category: editCategory,
       }
@@ -350,7 +350,7 @@ const [postsubdata, setpostsubdata] = useState([]);
 
   const getsubcategory = async () => {
     let res = await axios.post(
-      `http://api.vijnanacademy.com/api/userapp/postappresubcat/`,
+      `https://api.vijnanacademy.com/api/userapp/postappresubcat/`,
       {
         subcategory: editSubcategory,
       }
@@ -368,7 +368,7 @@ const [postsubdata, setpostsubdata] = useState([]);
       const config = {
         url: `/userapp/updateadvanceddata/${id}`,
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
         headers: { "content-type": "application/json" },
         data: {
           plans: [...plandata, ...Servicedata[0]?.plans],
@@ -407,7 +407,7 @@ const [postsubdata, setpostsubdata] = useState([]);
   }, []);
 
   const getcity = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/master/getcity");
+    let res = await axios.get("https://api.vijnanacademy.com/api/master/getcity");
     if ((res.status = 200)) {
       setcitydata(res.data?.mastercity);
     }
@@ -537,14 +537,14 @@ const [postsubdata, setpostsubdata] = useState([]);
   }, []);
 
   const getslots = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getslots");
+    let res = await axios.get("https://api.vijnanacademy.com/api/userapp/getslots");
     if ((res.status = 200)) {
       setslotsdata(res.data?.slots);
     }
   };
 
   const gettitle = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/gettitle");
+    let res = await axios.get("https://api.vijnanacademy.com/api/userapp/gettitle");
     if ((res.status = 200)) {
       settitledata(res.data?.homepagetitle);
     }
@@ -555,7 +555,7 @@ const [postsubdata, setpostsubdata] = useState([]);
     console.log("slotid", slotid); // Log the slotid directly
     try {
       const response = await axios.delete(
-        `http://api.vijnanacademy.com/api/userapp/deleteStoreSlot/${sid}/${slotid}`
+        `https://api.vijnanacademy.com/api/userapp/deleteStoreSlot/${sid}/${slotid}`
       );
 
       if (response.status === 200) {
@@ -575,7 +575,7 @@ const [postsubdata, setpostsubdata] = useState([]);
   const handleDeleteprice = async (id, index) => {
     try {
       const response = await axios.delete(
-        `http://api.vijnanacademy.com/api/userapp/deleteprice/${sid}/${id}`
+        `https://api.vijnanacademy.com/api/userapp/deleteprice/${sid}/${id}`
       );
 
       if (response.status === 200) {
@@ -661,7 +661,7 @@ const [postsubdata, setpostsubdata] = useState([]);
       const config = {
         url: `/userapp/updateservices/${serviceId}`,
         method: "put",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
         headers: { "content-type": "multipart/form-data" },
         data: formdata,
       };
@@ -734,7 +734,7 @@ const [postsubdata, setpostsubdata] = useState([]);
                   <img src={ServiceImg1} height="150px" />
                 ) : (
                   <img
-                    src={`http://api.vijnanacademy.com/service/${Servicedata[0]?.serviceImg}`}
+                    src={`https://api.vijnanacademy.com/service/${Servicedata[0]?.serviceImg}`}
                   />
                 )}
 
@@ -1215,7 +1215,7 @@ const [postsubdata, setpostsubdata] = useState([]);
                         </span>
                         <img
                           style={{ width: "15px", height: "15px" }}
-                          src={`http://api.vijnanacademy.com/service/${Servicedata[0]?.Desimg}`}
+                          src={`https://api.vijnanacademy.com/service/${Servicedata[0]?.Desimg}`}
                         />
                         {/* {editServiceIncludes?.serviceIncludes.map((i) => ( */}
                         {editServiceIncludes.map((include, index) => (
@@ -1276,7 +1276,7 @@ const [postsubdata, setpostsubdata] = useState([]);
                         </span>
                         <img
                           style={{ width: "15px", height: "15px" }}
-                          src={`http://api.vijnanacademy.com/service/${Servicedata[0]?.Inimg}`}
+                          src={`https://api.vijnanacademy.com/service/${Servicedata[0]?.Inimg}`}
                         />
                         {/* {Servicedata[0]?.serviceExcludes.map((i) => ( */}
                         {editServiceExcludes.map((excludes, index) => (

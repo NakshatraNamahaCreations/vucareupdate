@@ -33,7 +33,7 @@ function City() {
       const config = {
         url: "/master/addcity",
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
         data: { city: city },
       };
       await axios(config).then(function (response) {
@@ -59,7 +59,7 @@ function City() {
   }, []);
 
   const getCity = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/master/getcity");
+    let res = await axios.get("https://api.vijnanacademy.com/api/master/getcity");
     if ((res.status = 200)) {
       setCitydata(res.data?.mastercity);
       setfilterdata(res.data?.mastercity);
@@ -73,7 +73,7 @@ function City() {
       const config = {
         url: `/master/editcity/${catagoryId}`,
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
         data: { city: editCityName },
         headers: {
           "Content-Type": "application/json",
@@ -132,7 +132,7 @@ function City() {
   const deleteCity = async (id) => {
     axios({
       method: "post",
-      url: "http://api.vijnanacademy.com/api/master/deletecity/" + id,
+      url: "https://api.vijnanacademy.com/api/master/deletecity/" + id,
     })
       .then(function (response) {
         //handle success

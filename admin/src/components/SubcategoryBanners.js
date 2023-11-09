@@ -39,7 +39,7 @@ function SubCateBanner() {
       const config = {
         url: "/addsubcatwebbanner",
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
 
         data: formdata,
       };
@@ -59,7 +59,7 @@ function SubCateBanner() {
   }, []);
 
   const getcategory = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getappsubcat");
+    let res = await axios.get("https://api.vijnanacademy.com/api/userapp/getappsubcat");
     if ((res.status = 200)) {
       setcategorydata(res.data?.subcategory);
     }
@@ -71,7 +71,7 @@ function SubCateBanner() {
 
   const getbannerimg = async () => {
     let res = await axios.get(
-      "http://api.vijnanacademy.com/api/getallsubcatwebbanner"
+      "https://api.vijnanacademy.com/api/getallsubcatwebbanner"
     );
     if ((res.status = 200)) {
       setBannerdata(res?.data?.subcategoyrbanner);
@@ -82,7 +82,7 @@ function SubCateBanner() {
   const deletebannerimg = async (id) => {
     axios({
       method: "post",
-      url: "http://api.vijnanacademy.com/api/deletesubcatwebbanner/" + id,
+      url: "https://api.vijnanacademy.com/api/deletesubcatwebbanner/" + id,
     })
       .then(function (response) {
         //handle success
@@ -152,7 +152,7 @@ function SubCateBanner() {
                           <td>
                             <img
                               className="header_logo"
-                              src={`http://api.vijnanacademy.com/subcatwebBanner/${element.banner}`}
+                              src={`https://api.vijnanacademy.com/subcatwebBanner/${element.banner}`}
                               width={"100px"}
                               height={"50px"}
                             />

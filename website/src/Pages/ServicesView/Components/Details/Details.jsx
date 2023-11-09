@@ -28,7 +28,7 @@
 //   const getAllCategory = async () => {
 //     try {
 //       let res = await axios.get(
-//         "http://api.vijnanacademy.com/api/userapp/getappsubcat"
+//         "https://api.vijnanacademy.com/api/userapp/getappsubcat"
 //       );
 //       if (res.status === 200) {
 //         setCategoryData(res.data.subcategory);
@@ -41,7 +41,7 @@
 //   const getAllSubsubCategory = async () => {
 //     try {
 //       let res = await axios.get(
-//         "http://api.vijnanacademy.com/api/userapp/getappresubcat"
+//         "https://api.vijnanacademy.com/api/userapp/getappresubcat"
 //       );
 //       if (res.status === 200) {
 //         setsubsubcategory(res.data.subcategory);
@@ -53,7 +53,7 @@
 
 //   const getCity = async () => {
 //     try {
-//       let res = await axios.get("http://api.vijnanacademy.com/api/master/getcity");
+//       let res = await axios.get("https://api.vijnanacademy.com/api/master/getcity");
 //       if (res.status === 200) {
 //         setCity(res.data.mastercity);
 //       }
@@ -178,7 +178,7 @@
 //                                 width={150}
 //                                 height={150}
 //                                 className="imgs "
-//                                 src={`http://api.vijnanacademy.com/resubcat/${Ele.resubcatimg}`}
+//                                 src={`https://api.vijnanacademy.com/resubcat/${Ele.resubcatimg}`}
 //                                 alt=""
 //                               />
 //                             </div>
@@ -199,7 +199,7 @@
 //                   <div key={Ele}>
 //                     <video width="440" height="260" autoPlay loop controls>
 //                       <source
-//                         src={`http://api.vijnanacademy.com/subcat/${Ele?.subcatvideo}`}
+//                         src={`https://api.vijnanacademy.com/subcat/${Ele?.subcatvideo}`}
 //                         type="video/mp4"
 //                       />
 //                     </video>

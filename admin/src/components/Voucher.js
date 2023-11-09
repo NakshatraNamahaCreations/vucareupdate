@@ -49,7 +49,7 @@ function Voucher() {
         const config = {
           url: "/userapp/addvoucher",
           method: "post",
-          baseURL: "http://api.vijnanacademy.com/api",
+          baseURL: "https://api.vijnanacademy.com/api",
           headers: { "content-type": "application/json" },
           data: {
             category: category,
@@ -86,7 +86,7 @@ function Voucher() {
   }, []);
 
   const getcategory = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/getcategory");
+    let res = await axios.get("https://api.vijnanacademy.com/api/getcategory");
     if ((res.status = 200)) {
       setcategorydata(res.data?.category);
     }
@@ -94,7 +94,7 @@ function Voucher() {
  
 
   const getvoucher = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getvoucher");
+    let res = await axios.get("https://api.vijnanacademy.com/api/userapp/getvoucher");
     if ((res.status = 200)) {
       setvoucherdata(res.data?.voucher);
     }
@@ -102,7 +102,7 @@ function Voucher() {
   const deletevoucher = async (id) => {
     axios({
       method: "post",
-      url: "http://api.vijnanacademy.com/api/userapp/deletevoucher/" + id,
+      url: "https://api.vijnanacademy.com/api/userapp/deletevoucher/" + id,
     })
       .then(function (response) {
         //handle success

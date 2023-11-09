@@ -19,7 +19,7 @@ export default function JustForYou() {
   const GetAllWebBanner = async () => {
     try {
       let res = await axios.get(
-        "http://api.vijnanacademy.com/api/website/getallwebbanner"
+        "https://api.vijnanacademy.com/api/website/getallwebbanner"
       );
 
       if (res.status === 200) {
@@ -67,7 +67,7 @@ export default function JustForYou() {
               <div className="slide " key={index}>
                 {/* <NavLink to={`/ServicesView?id=${ele._id}`} className="jf_box"> */}
                 <img
-                  src={`http://api.vijnanacademy.com/webBanner/${ele?.banner}`}
+                  src={`https://api.vijnanacademy.com/webBanner/${ele?.banner}`}
                   alt={`Slide ${ele?.id}`}
                   className="slider-image"
                 />

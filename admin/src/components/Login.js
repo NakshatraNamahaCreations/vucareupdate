@@ -19,7 +19,7 @@ function Login() {
       const config = {
         url: "/super/loginSuperAdmin",
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
         headers: { "content-type": "application/json" },
         data: { emailorphone: emailOrName, password: password },
       };

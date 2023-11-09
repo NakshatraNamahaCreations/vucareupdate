@@ -46,7 +46,7 @@ function Banner() {
       const config = {
         url: "/userapp/addofferbanner",
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
 
         data: formdata,
       };
@@ -67,7 +67,7 @@ function Banner() {
   }, []);
 
   const getcategory = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getappsubcat");
+    let res = await axios.get("https://api.vijnanacademy.com/api/userapp/getappsubcat");
     if ((res.status = 200)) {
       setcategorydata(res.data?.subcategory);
     }
@@ -80,7 +80,7 @@ function Banner() {
 
   const getbannerimg = async () => {
     let res = await axios.get(
-      "http://api.vijnanacademy.com/api/userapp/getallofferbanner"
+      "https://api.vijnanacademy.com/api/userapp/getallofferbanner"
     );
     if ((res.status = 200)) {
       setBannerdata(res.data?.offerbanner);
@@ -91,7 +91,7 @@ function Banner() {
   const deletebannerimg = async (id) => {
     axios({
       method: "post",
-      url: "http://api.vijnanacademy.com/api/userapp/deleteofferbanner/" + id,
+      url: "https://api.vijnanacademy.com/api/userapp/deleteofferbanner/" + id,
     })
       .then(function (response) {
         //handle success
@@ -162,7 +162,7 @@ function Banner() {
                           <td>
                             <img
                               className="header_logo"
-                              src={`http://api.vijnanacademy.com/offerbanner/${element.icon}`}
+                              src={`https://api.vijnanacademy.com/offerbanner/${element.icon}`}
                               width={"50px"}
                               height={"50px"}
                             />

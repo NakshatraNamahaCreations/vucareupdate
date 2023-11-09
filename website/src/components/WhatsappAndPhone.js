@@ -38,7 +38,7 @@ function WhatsappAndPhone() {
   }, []);
 
   const getcategory = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/getcategory");
+    let res = await axios.get("https://api.vijnanacademy.com/api/getcategory");
     if (res.status === 200) {
       setdata1(res.data?.category);
       console.log(res.data?.category);
@@ -50,7 +50,7 @@ function WhatsappAndPhone() {
       const config = {
         url: "/userapp/addNumbers",
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
         headers: {
           "Content-Type": "application/json",
         },
@@ -81,7 +81,7 @@ function WhatsappAndPhone() {
 
   const getAllNumbers = async () => {
     let res = await axios.get(
-      "http://api.vijnanacademy.com/api/userapp/getwhatsNumbers"
+      "https://api.vijnanacademy.com/api/userapp/getwhatsNumbers"
     );
     if (res.status === 200) {
       console.log(res);
@@ -97,7 +97,7 @@ function WhatsappAndPhone() {
       const config = {
         url: `/userapp/updateWhatsAppNumber/${editNumberData._id}`,
         method: "put",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
         headers: { "Content-Type": "application/json" },
         data: {
           numbersCategory: editCategoryName,
@@ -121,7 +121,7 @@ function WhatsappAndPhone() {
   const deleteNumbers = async (id) => {
     axios({
       method: "delete",
-      url: "http://api.vijnanacademy.com/api/userapp/deletenumbers/" + id,
+      url: "https://api.vijnanacademy.com/api/userapp/deletenumbers/" + id,
     })
       .then(function (response) {
         console.log(response);

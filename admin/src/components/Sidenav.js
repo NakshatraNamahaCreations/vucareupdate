@@ -26,7 +26,7 @@ function Sidenav() {
       const config = {
         url: `/super/logout/${admin?._id}`,
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
         headers: { "content-type": "application/json" },
         data: {},
       };

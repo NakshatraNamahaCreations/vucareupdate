@@ -29,7 +29,7 @@ export default function BookingDetails() {
   const getServiceDetails = async () => {
     try {
       const response = await axios.get(
-        `http://api.vijnanacademy.com/api/getservicedetails`
+        `https://api.vijnanacademy.com/api/getservicedetails`
       );
       if (response.status === 200) {
         let filtredServices = response?.data?.servicedetails?.filter(
@@ -45,7 +45,7 @@ export default function BookingDetails() {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://api.vijnanacademy.com/api/userapp/getservices"
+        "https://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         let data = res?.data?.service;
@@ -120,7 +120,7 @@ export default function BookingDetails() {
                         <div className="left">
                           <div className="left_img">
                             <img
-                              src={`http://api.vijnanacademy.com/service/${serviceIMg}`}
+                              src={`https://api.vijnanacademy.com/service/${serviceIMg}`}
                               alt=""
                             />
                           </div>

@@ -78,14 +78,14 @@ function Dashboard() {
   }, []);
 
   const getappcustomer = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getuser");
+    let res = await axios.get("https://api.vijnanacademy.com/api/userapp/getuser");
     if ((res.status = 200)) {
       setuserdata(res.data?.userdata);
     }
   };
 
   const getservicemanagement = async () => {
-    let res = await axios.get("http://api.vijnanacademy.com/api/userapp/getservices");
+    let res = await axios.get("https://api.vijnanacademy.com/api/userapp/getservices");
     if ((res.status = 200)) {
       setServicedata(res.data?.service);
     }

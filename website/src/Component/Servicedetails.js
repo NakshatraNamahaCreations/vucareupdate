@@ -39,7 +39,7 @@ function Servicedetails() {
   const getAllServices = async () => {
     try {
       let res = await axios.get(
-        "http://api.vijnanacademy.com/api/userapp/getservices"
+        "https://api.vijnanacademy.com/api/userapp/getservices"
       );
       if (res.status === 200) {
         setserviceData(res.data.service);
@@ -68,7 +68,7 @@ function Servicedetails() {
 
   const getCity = async () => {
     try {
-      let res = await axios.get("http://api.vijnanacademy.com/api/master/getcity");
+      let res = await axios.get("https://api.vijnanacademy.com/api/master/getcity");
       if (res.status === 200) {
         setCity(res.data.mastercity);
       }
@@ -104,7 +104,7 @@ function Servicedetails() {
 
   const getbannerimg = async () => {
     let res = await axios.get(
-      "http://api.vijnanacademy.com/api/getallsubcatwebbanner"
+      "https://api.vijnanacademy.com/api/getallsubcatwebbanner"
     );
     if ((res.status = 200)) {
       let filteredData = res.data.subcategoyrbanner.filter((Ele) =>
@@ -146,7 +146,7 @@ function Servicedetails() {
                   style={{ borderRadius: "20px" }}
                   alt=""
                   className="header_logo"
-                  src={`http://api.vijnanacademy.com/subcatwebBanner/${Ele.banner}`}
+                  src={`https://api.vijnanacademy.com/subcatwebBanner/${Ele.banner}`}
                   width={100}
                   height={440}
                 />
@@ -277,7 +277,7 @@ function Servicedetails() {
                       width={300}
                       className="row m-auto"
                       height={200}
-                      src={`http://api.vijnanacademy.com/service/${service?.serviceImg}`}
+                      src={`https://api.vijnanacademy.com/service/${service?.serviceImg}`}
                       alt=""
                       style={{ borderRadius: "10px" }}
                     />
@@ -335,7 +335,7 @@ function Servicedetails() {
                         <div className="left">
                           <div className="left_img">
                             <img
-                              src={`http://api.vijnanacademy.com/service/${ele?.serviceImg}`}
+                              src={`https://api.vijnanacademy.com/service/${ele?.serviceImg}`}
                               alt=""
                             />
                           </div>
@@ -432,7 +432,7 @@ function Servicedetails() {
               <div className="col-md-4">
                 <img
                   style={{ borderRadius: "20px" }}
-                  src={`http://api.vijnanacademy.com/service/${Item?.serviceImg}`}
+                  src={`https://api.vijnanacademy.com/service/${Item?.serviceImg}`}
                   alt=""
                   height={200}
                 />

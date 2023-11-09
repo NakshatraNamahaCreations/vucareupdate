@@ -16,7 +16,7 @@ function Settings() {
       const config = {
         url: `/super/changepassword/${admin?._id}`,
         method: "post",
-        baseURL: "http://api.vijnanacademy.com/api",
+        baseURL: "https://api.vijnanacademy.com/api",
         headers: { "content-type": "application/json" },
         data: {
           oldPassword: oldPassword,
