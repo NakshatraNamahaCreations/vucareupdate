@@ -38,7 +38,7 @@ class Otp {
         const country = "91";
         const DLT_TE_ID = "1707169511264546338";
 
-        const url = `httpss://control.bestsms.co.in/api/sendhttpss.php?authkey=${authkey}&mobiles=${mobileNumber}&message=${encodeURIComponent(
+        const url = `https://control.bestsms.co.in/api/sendhttpss.php?authkey=${authkey}&mobiles=${mobileNumber}&message=${encodeURIComponent(
           message
         )}&sender=${sender}&route=${route}&country=${country}&DLT_TE_ID=${DLT_TE_ID}`;
 
