@@ -80,92 +80,39 @@ function ServiceBooking() {
         <Header />
 
         <div className="row m-auto">
-          <table class="table table-hover table-bordered mt-5">
-            <thead className="text-align-center">
-              <tr className="table-secondary ">
-                <th className="table-head" scope="col">
-                  S.No
-                </th>
-                <th className="table-head" scope="col">
-                  User Name
-                </th>
-                <th className="table-head" scope="col">
-                  User Email
-                </th>
-                <th className="table-head" scope="col">
-                  User Address
-                </th>
-                <th className="table-head" scope="col">
-                  User Contact No.
-                </th>
-                <th className="table-head" scope="col">
-                  Service Name
-                </th>
-                <th className="table-head" scope="col">
-                  Service Price
-                </th>
-                <th className="table-head" scope="col">
-                  Service Image
-                </th>
-                <th className="table-head" scope="col">
-                  Discount Percentage(%)
-                </th>
-                <th className="table-head" scope="col">
-                  Service booked date
-                </th>
+          <table class=" mt-5">
+            <thead>
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">User Name</th>
+                <th scope="col">User Email</th>
+                <th scope="col">User Address</th>
+                <th scope="col">User Contact No.</th>
+                <th scope="col">Service Name</th>
+                <th scope="col">Service Price</th>
+                <th scope="col">Service Image</th>
+                <th scope="col">Discount Percentage(%)</th>
+                <th scope="col">Service booked date</th>
 
-                <th className="table-head" scope="col">
-                  Service validity date
-                </th>
-                <th className="table-head" scope="col">
-                  Service delivery address
-                </th>
+                <th scope="col">Service validity date</th>
+                <th scope="col">Service delivery address</th>
 
-                <th className="table-head" scope="col">
-                  Action
-                </th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody className="justify-content-center">
-              {/* <tr className="user-tbale-body text-center">
-                <td>1</td>
-                <td>Vu Care</td>
-                <td>thevucare@gmail.ocm</td>
-                <td>Banglore jp nagar</td>
-                <td>9328452913</td>
-                <td>cleaning Bathroom</td>
-                <td>3400</td>
-
-                <td>
-                  <img
-                    src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRs26eXltFe1PsOeue7eM2ZquYKXKfbke5PijrBwVDevlIdzbkj"
-                    width={"30px"}
-                    height={"30px"}
-                  />
-                </td>
-                <td>5%</td>
-                <td>02-06-2023</td>
-                <td>04-08-2023</td>
-                <td>Bengaluru</td>
-                <td>
-                  {" "}
-                  <span>Completed </span>
-                  <Button variant="success">Edit</Button>{" "}
-                </td>
-              </tr> */}
-
+            <tbody>
               {allBookedServices?.map((ele, index) => {
                 let userData;
                 let ServiceData;
                 ele.customerData.flatMap((user) => {
                   userData = user;
                 });
-                Serivid.map((Ele) => (ServiceData = Ele));
-                console.log(ele?.ServiceStatus, "ele?.ServiceStatus");
+                Serivid?.map((Ele) => (ServiceData = Ele));
+
                 const deliveryAddressObj = JSON?.parse(ele?.deliveryAddress);
                 return (
                   <tr
-                    className={`user-tbale-body text-center ${
+                    className={`trstly p-2 ${
                       ele?.ServiceStatus?.includes("Completed") ? "clrgren" : ""
                     }`}
                   >

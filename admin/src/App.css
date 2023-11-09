@@ -1,5 +1,14 @@
+.clrgren {
+  background-color: #03b162;
+}
+
 .black {
   background-color: #282c34;
+}
+table,
+tr > th,
+tr > td {
+  border: 1px solid black;
 }
 .App-logo {
   height: 40vmin;
