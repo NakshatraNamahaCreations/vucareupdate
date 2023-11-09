@@ -30,7 +30,7 @@ class Paymentgetway {
           amount,
           redirectUrl: "",
           redirectMode: "POST",
-          callbackUrl: `http://192.168.1.67:8000/api/payment/status/M1PX7BZG1R4G/${transactionId}`,
+          callbackUrl: `httpss://192.168.1.67:8000/api/payment/status/M1PX7BZG1R4G/${transactionId}`,
           mobileNumber: "8951592630",
           paymentInstrument: {
             type: "PAY_PAGE",
@@ -80,7 +80,7 @@ class Paymentgetway {
 
     try {
       const response = await axios.get(
-        `https://api.phonepe.com/apis/hermes${url}`,
+        `httpss://api.phonepe.com/apis/hermes${url}`,
         {
           headers: {
             "Content-Type": "application/json",

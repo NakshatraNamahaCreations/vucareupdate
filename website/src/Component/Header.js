@@ -270,7 +270,7 @@ export default function Header() {
           <div className="modal_body">
             <div className="title text-center">India</div>
             <div className="row">
-              {city.map((city) => {
+              {/* {city.map((city) => {
                 return (
                   <div className="col-lg-2 col-md-3 col-sm-4">
                     <div
@@ -283,7 +283,7 @@ export default function Header() {
                     </div>
                   </div>
                 );
-              })}
+              })} */}
             </div>
           </div>
         </div>
