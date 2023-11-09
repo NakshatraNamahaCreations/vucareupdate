@@ -613,7 +613,7 @@ export default function CartDetails() {
             planid: bhk,
             qunty: Number(CountAddon) + Number(NumberOfQunatity),
             subtotal: subtotal,
-            ServiceStatus: Pending,
+            ServiceStatus: "Pending",
           },
         };
 
@@ -691,7 +691,7 @@ export default function CartDetails() {
         <ArrowCircleLeftIcon />
       </a> */}
 
-<div className="cart_heading">
+      <div className="cart_heading">
         <div className="container">
           <div className="row mb-4">
             <span className="col-md-1">
@@ -1065,9 +1065,10 @@ export default function CartDetails() {
                         </>
                       )}
                     </div>
-                    <button className="p-2 " onClick={handleBookservices1}>BOOK</button>
+                    <button className="p-2 " onClick={handleBookservices1}>
+                      BOOK
+                    </button>
                   </div>
-                 
                 </div>
               </Modal>
 
